@@ -118,6 +118,7 @@ public class PartitionByFileMap extends AbstractPartitionAlgorithm implements Ru
 			}
 			in = new BufferedReader(new InputStreamReader(fin));
 			
+			// init HahsMap 可以读取数据库或配置中心。
 			app2Partition = new HashMap<Object, Integer>();
 			
 			for (String line = null; (line = in.readLine()) != null;) {
@@ -132,6 +133,7 @@ public class PartitionByFileMap extends AbstractPartitionAlgorithm implements Ru
 				try {
 					String key = line.substring(0, ind).trim();
 					int pid = Integer.parseInt(line.substring(ind + 1).trim());
+					//TODO what's the type ? int or string ? type default is Integer else String
 					if(type == 0) {
 						app2Partition.put(Integer.parseInt(key), pid);
 					} else {

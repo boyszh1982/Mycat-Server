@@ -36,6 +36,13 @@ import io.mycat.config.model.SystemConfig;
 
 /**
  * @author mycat
+ * 
+ * !Mycat权威指南.page23
+ * 启动需要设置MYCAT_HOME
+ * 
+ * /warapper.log,再启动时候如果系统环境配置错误或缺少配置时，导致Mycat无法启动，可以通过查看warrpper.log查看具体错
+误原因。
+	日志分析-page31(调整Mycat运行参数 线程池、buffer、连接池等等)
  */
 public final class MycatStartup {
     private static final String dateFormat = "yyyy-MM-dd HH:mm:ss";

@@ -1,22 +1,114 @@
 <?xml version="1.0"?>
 <!DOCTYPE mycat:schema SYSTEM "schema.dtd">
 <mycat:schema xmlns:mycat="http://io.mycat/">
-
-	<schema name="TESTDB" checkSQLschema="false" sqlMaxLimit="100">
-		<!-- auto sharding by id (long) -->
-		<table name="travelrecord" dataNode="dn1,dn2,dn3" rule="auto-sharding-long" />
+	<!-- 只有分库，sqlMaxLimit才生效 -->
+	<schema name="EHSUREDB" checkSQLschema="false" sqlMaxLimit="100">
+		
+		<!-- 单库表 -->
+		<table name="ebc_bill_header" dataNode="dn_149_m"/>
+		<table name="ebc_bill_reason" dataNode="dn_149_m"/>
+		<table name="ebc_code_label" dataNode="dn_149_m"/>
+		<table name="ebc_gencode" dataNode="dn_149_m"/>
+		<table name="ebc_gencode_breakpoint" dataNode="dn_149_m"/>
+		<table name="ebc_gencode_download_detail" dataNode="dn_149_m"/>
+		<table name="ebc_gencode_order" dataNode="dn_149_m"/>
+		<table name="ebc_gencode_rule" dataNode="dn_149_m"/>
+		<table name="ebc_production_code_assign_detail" dataNode="dn_149_m"/>
+		<table name="ebc_production_code_assign_header" dataNode="dn_149_m"/>
+		<table name="ebc_production_code_assign_segment" dataNode="dn_149_m"/>
+		<table name="ebc_production_code_scan_assign" dataNode="dn_149_m"/>
+		<table name="ebc_production_code_scan_assign_faild_detail" dataNode="dn_149_m"/>
+		<table name="ec_code_scan_log" dataNode="dn_149_m"/>
+		<table name="ec_consumer_config" dataNode="dn_149_m"/>
+		<table name="ec_consumer_login_log" dataNode="dn_149_m"/>
+		<table name="ec_consumer_op_log" dataNode="dn_149_m"/>
+		<table name="ec_consumer_report_record" dataNode="dn_149_m"/>
+		<table name="ec_consumer_site_msg" dataNode="dn_149_m"/>
+		<table name="ec_consumer_site_msg_box" dataNode="dn_149_m"/>
+		<table name="ec_consumer_user" dataNode="dn_149_m"/>
+		<table name="ec_product_eptcode_instruction_diagram" dataNode="dn_149_m"/>
+		<table name="ec_product_expiry_date_remind_record" dataNode="dn_149_m"/>
+		<table name="ec_product_expiry_date_remind_set" dataNode="dn_149_m"/>
+		<table name="ec_purchase_record" dataNode="dn_149_m"/>
+		<table name="ec_report_question_type" dataNode="dn_149_m"/>
+		<table name="ec_scan_code_scoring_rules" dataNode="dn_149_m"/>
+		<table name="ec_site_article" dataNode="dn_149_m"/>
+		<table name="ec_site_msg_send_logs" dataNode="dn_149_m"/>
+		<table name="ec_site_msg_template" dataNode="dn_149_m"/>
+		<table name="ec_site_msg_type" dataNode="dn_149_m"/>
+		<table name="sys_address_region" dataNode="dn_149_m"/>
+		<table name="sys_auth_module" dataNode="dn_149_m"/>
+		<table name="sys_auth_module_operation" dataNode="dn_149_m"/>
+		<table name="sys_auth_role" dataNode="dn_149_m"/>
+		<table name="sys_auth_role_module" dataNode="dn_149_m"/>
+		<table name="sys_auth_role_module_operation" dataNode="dn_149_m"/>
+		<table name="sys_auth_user" dataNode="dn_149_m"/>
+		<table name="sys_auth_user_role" dataNode="dn_149_m"/>
+		<table name="sys_code_seq_rule" dataNode="dn_149_m"/>
+		<table name="sys_company" dataNode="dn_149_m"/>
+		<table name="sys_company_business_license" dataNode="dn_149_m"/>
+		<table name="sys_company_certificate" dataNode="dn_149_m"/>
+		<table name="sys_company_contacts" dataNode="dn_149_m"/>
+		<table name="sys_dealer" dataNode="dn_149_m"/>
+		<table name="sys_dealer_contacts" dataNode="dn_149_m"/>
+		<table name="sys_demo" dataNode="dn_149_m"/>
+		<table name="sys_department" dataNode="dn_149_m"/>
+		<table name="sys_factory" dataNode="dn_149_m"/>
+		<table name="sys_industry" dataNode="dn_149_m"/>
+		<table name="sys_industry_certificate" dataNode="dn_149_m"/>
+		<table name="sys_login_logs" dataNode="dn_149_m"/>
+		<table name="sys_operation_detail_logs" dataNode="dn_149_m"/>
+		<table name="sys_operation_logs" dataNode="dn_149_m"/>
+		<table name="sys_organization" dataNode="dn_149_m"/>
+		<table name="sys_organization_type" dataNode="dn_149_m"/>
+		<table name="sys_org_auth_module" dataNode="dn_149_m"/>
+		<table name="sys_org_auth_orgnization_role" dataNode="dn_149_m"/>
+		<table name="sys_org_auth_role" dataNode="dn_149_m"/>
+		<table name="sys_org_auth_role_module" dataNode="dn_149_m"/>
+		<table name="sys_org_auth_user" dataNode="dn_149_m"/>
+		<table name="sys_org_auth_user_module" dataNode="dn_149_m"/>
+		<table name="sys_org_config" dataNode="dn_149_m"/>
+		<table name="sys_org_faq" dataNode="dn_149_m"/>
+		<table name="sys_org_faq_type" dataNode="dn_149_m"/>
+		<table name="sys_org_login_logs" dataNode="dn_149_m"/>
+		<table name="sys_org_operation_detail_logs" dataNode="dn_149_m"/>
+		<table name="sys_org_operation_logs" dataNode="dn_149_m"/>
+		<table name="sys_org_person" dataNode="dn_149_m"/>
+		<table name="sys_org_site_msg_send_logs" dataNode="dn_149_m"/>
+		<table name="sys_org_site_msg_template" dataNode="dn_149_m"/>
+		<table name="sys_org_site_msg_type" dataNode="dn_149_m"/>
+		<table name="sys_org_user_feedback" dataNode="dn_149_m"/>
+		<table name="sys_org_user_site_msg" dataNode="dn_149_m"/>
+		<table name="sys_org_user_site_msg_box" dataNode="dn_149_m"/>
+		<table name="sys_person" dataNode="dn_149_m"/>
+		<table name="sys_product" dataNode="dn_149_m"/>
+		<table name="sys_product_category" dataNode="dn_149_m"/>
+		<table name="sys_product_in_factory" dataNode="dn_149_m"/>
+		<table name="sys_product_package" dataNode="dn_149_m"/>
+		<table name="sys_sub_organization" dataNode="dn_149_m"/>
+		<table name="sys_warehouse" dataNode="dn_149_m"/>
+		
+		<table name="ebc_code_routing" primaryKey="id" dataNode="dn_211_$0-3,dn_212_$0-3,dn_213_$0-3,dn_149_$0-3" rule="sharding-by-stringhash" />
+		<!-- 
+		将primaryKey=id / primaryKey = code 进行切换测试，查看执行计划。
+		explain select * from ebc_production_code where company_id = ?
+		explain select * from ebc_production_code where id = ? 
+		primaryKey 与 rule中的columns区别？
+		 -->
+		<table name="ebc_production_code" primaryKey="company_id" dataNode="dn_211_$0-3,dn_212_$0-3,dn_213_$0-3,dn_149_$0-3" rule="auto-sharding-long" />
 
 		<!-- global table is auto cloned to all defined data nodes ,so can join
 			with any table whose sharding node is in the same data node -->
-		<table name="company" primaryKey="ID" type="global" dataNode="dn1,dn2,dn3" />
-		<table name="goods" primaryKey="ID" type="global" dataNode="dn1,dn2" />
+		<!-- <table name="company" primaryKey="ID" type="global" dataNode="dn1,dn2,dn3" />
+		<table name="goods" primaryKey="ID" type="global" dataNode="dn1,dn2" /> -->
 		<!-- random sharding using mod sharind rule -->
-		<table name="hotnews" primaryKey="ID" autoIncrement="true" dataNode="dn1,dn2,dn3"
-			   rule="mod-long" />
+		<!-- 需要测试分库后，ID在每个库上是否不同。 -->
+		<!-- <table name="hotnews" primaryKey="ID" autoIncrement="true" dataNode="dn1,dn2,dn3"
+			   rule="mod-long" /> -->
 		<!-- <table name="dual" primaryKey="ID" dataNode="dnx,dnoracle2" type="global"
 			needAddLimit="false"/> <table name="worker" primaryKey="ID" dataNode="jdbc_dn1,jdbc_dn2,jdbc_dn3"
 			rule="mod-long" /> -->
-		<table name="employee" primaryKey="ID" dataNode="dn1,dn2"
+		<!-- <table name="employee" primaryKey="ID" dataNode="dn1,dn2"
 			   rule="sharding-by-intfile" />
 		<table name="customer" primaryKey="ID" dataNode="dn1,dn2"
 			   rule="sharding-by-intfile">
@@ -27,32 +119,72 @@
 			</childTable>
 			<childTable name="customer_addr" primaryKey="ID" joinKey="customer_id"
 						parentKey="id" />
-		</table>
+		</table> -->
 		<!-- <table name="oc_call" primaryKey="ID" dataNode="dn1$0-743" rule="latest-month-calldate"
 			/> -->
 	</schema>
 	<!-- <dataNode name="dn1$0-743" dataHost="localhost1" database="db$0-743"
 		/> -->
-	<dataNode name="dn1" dataHost="localhost1" database="db1" />
-	<dataNode name="dn2" dataHost="localhost1" database="db2" />
-	<dataNode name="dn3" dataHost="localhost1" database="db3" />
+	<dataNode name="dn_211_0" dataHost="ehsure_db_211" database="ehsure_veteri_drugs_0" />
+	<dataNode name="dn_211_1" dataHost="ehsure_db_211" database="ehsure_veteri_drugs_1" />
+	<dataNode name="dn_211_2" dataHost="ehsure_db_211" database="ehsure_veteri_drugs_2" />
+	<dataNode name="dn_211_3" dataHost="ehsure_db_211" database="ehsure_veteri_drugs_3" />
+	
+	<dataNode name="dn_212_0" dataHost="ehsure_db_212" database="ehsure_veteri_drugs_0" />
+	<dataNode name="dn_212_1" dataHost="ehsure_db_212" database="ehsure_veteri_drugs_1" />
+	<dataNode name="dn_212_2" dataHost="ehsure_db_212" database="ehsure_veteri_drugs_2" />
+	<dataNode name="dn_212_3" dataHost="ehsure_db_212" database="ehsure_veteri_drugs_3" />
+	
+	<dataNode name="dn_213_0" dataHost="ehsure_db_213" database="ehsure_veteri_drugs_0" />
+	<dataNode name="dn_213_1" dataHost="ehsure_db_213" database="ehsure_veteri_drugs_1" />
+	<dataNode name="dn_213_2" dataHost="ehsure_db_213" database="ehsure_veteri_drugs_2" />
+	<dataNode name="dn_213_3" dataHost="ehsure_db_213" database="ehsure_veteri_drugs_3" />
+	
+	<dataNode name="dn_149_0" dataHost="ehsure_db_149" database="ehsure_veteri_drugs_0" />
+	<dataNode name="dn_149_1" dataHost="ehsure_db_149" database="ehsure_veteri_drugs_1" />
+	<dataNode name="dn_149_2" dataHost="ehsure_db_149" database="ehsure_veteri_drugs_2" />
+	<dataNode name="dn_149_3" dataHost="ehsure_db_149" database="ehsure_veteri_drugs_3" />
+	
+	<dataNode name="dn_149_m" dataHost="ehsure_db_149" database="ehsure_veteri_drugs" />
 	<!--<dataNode name="dn4" dataHost="sequoiadb1" database="SAMPLE" />
 	 <dataNode name="jdbc_dn1" dataHost="jdbchost" database="db1" />
 	<dataNode	name="jdbc_dn2" dataHost="jdbchost" database="db2" />
 	<dataNode name="jdbc_dn3" 	dataHost="jdbchost" database="db3" /> -->
-	<dataHost name="localhost1" maxCon="1000" minCon="10" balance="0"
+	<!-- 
+	1. balance=“0”, 所有读操作都发送到当前可用的writeHost上。
+	2. balance=“1”，所有读操作都随机的发送到readHost。
+	3. balance=“2”，所有读操作都随机的在writeHost、readhost上分发。
+	
+	1. writeType=“0”, 所有写操作都发送到可用的writeHost上。
+	2. writeType=“1”，所有写操作都随机的发送到readHost。
+	3. writeType=“2”，所有写操作都随机的在writeHost、readhost分上发。
+	 -->
+	<dataHost name="ehsure_db_211" maxCon="1000" minCon="10" balance="0"
 			  writeType="0" dbType="mysql" dbDriver="native" switchType="1"  slaveThreshold="100">
 		<heartbeat>select user()</heartbeat>
+		<writeHost host="hostM1" url="10.1.12.211:3306" user="root" password="Ehsure@123"></writeHost>
 		<!-- can have multi write hosts -->
-		<writeHost host="hostM1" url="localhost:3306" user="root"
-				   password="123456">
-			<!-- can have multi read hosts -->
-			<readHost host="hostS2" url="192.168.1.200:3306" user="root" password="xxx" />
-		</writeHost>
-		<writeHost host="hostS1" url="localhost:3316" user="root"
-				   password="123456" />
+		<!-- <writeHost host="hostM1" url="10.1.12.149:3306" user="root" password="Zxas,/12">
+			can have multi read hosts
+			<readHost host="hostS2" url="10.1.12.149:3306" user="root" password="Zxas,/12" />
+		</writeHost> -->
+		<!-- <writeHost host="hostS1" url="localhost:3316" user="root"
+				   password="123456" /> -->
 		<!-- <writeHost host="hostM2" url="localhost:3316" user="root" password="123456"/> -->
 	</dataHost>
+	<dataHost name="ehsure_db_212" dbType="mysql" balance="0" dbDriver="native" minCon="10" maxCon="1000">
+		<heartbeat>select user()</heartbeat>
+		<writeHost host="hostM2" url="10.1.12.212:3306" user="root" password="Ehsure@123"></writeHost>
+	</dataHost>
+	<dataHost name="ehsure_db_213" dbType="mysql" balance="0" dbDriver="native" minCon="10" maxCon="1000">
+		<heartbeat>select user()</heartbeat>
+		<writeHost host="hostM3" url="10.1.12.213:3306" user="root" password="Ehsure@123"></writeHost>
+	</dataHost>
+	<dataHost name="ehsure_db_149" dbType="mysql" balance="0" dbDriver="native" minCon="10" maxCon="1000">
+		<heartbeat>select user()</heartbeat>
+		<writeHost host="hostM3" url="10.1.12.149:3306" user="root" password="Zxas,/12"></writeHost>
+	</dataHost>
+	
 	<!--
 		<dataHost name="sequoiadb1" maxCon="1000" minCon="1" balance="0" dbType="sequoiadb" dbDriver="jdbc">
 		<heartbeat> 		</heartbeat>

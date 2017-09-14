@@ -7,11 +7,22 @@
 	WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. - See the 
 	License for the specific language governing permissions and - limitations 
 	under the License. -->
+	
+	
+	<!-- Mycat常用的分片规则 page63 -->
 <!DOCTYPE mycat:rule SYSTEM "rule.dtd">
 <mycat:rule xmlns:mycat="http://io.mycat/">
-	<tableRule name="rule1">
+
+	<tableRule name="sharding-by-stringhash">
 		<rule>
 			<columns>id</columns>
+			<algorithm>sharding-by-substring</algorithm>
+		</rule>
+	</tableRule>
+
+	<tableRule name="rule1">
+		<rule>
+			<columns>code</columns>
 			<algorithm>func1</algorithm>
 		</rule>
 	</tableRule>
@@ -25,13 +36,13 @@
 
 	<tableRule name="sharding-by-intfile">
 		<rule>
-			<columns>sharding_id</columns>
+			<columns>company_id</columns>
 			<algorithm>hash-int</algorithm>
 		</rule>
 	</tableRule>
 	<tableRule name="auto-sharding-long">
 		<rule>
-			<columns>id</columns>
+			<columns>company_id</columns>
 			<algorithm>rang-long</algorithm>
 		</rule>
 	</tableRule>
@@ -79,7 +90,8 @@
 			<algorithm>jump-consistent-hash</algorithm>
 		</rule>
 	</tableRule>
-
+	
+	<!-- 如何自定义算法？ -->
 	<function name="murmur"
 		class="io.mycat.route.function.PartitionByMurmurHash">
 		<property name="seed">0</property><!-- 默认是0 -->
@@ -97,6 +109,7 @@
 	<function name="hash-int"
 		class="io.mycat.route.function.PartitionByFileMap">
 		<property name="mapFile">partition-hash-int.txt</property>
+		<property name="defaultNode">1</property>
 	</function>
 	<function name="rang-long"
 		class="io.mycat.route.function.AutoPartitionByLong">
@@ -108,8 +121,8 @@
 	</function>
 
 	<function name="func1" class="io.mycat.route.function.PartitionByLong">
-		<property name="partitionCount">8</property>
-		<property name="partitionLength">128</property>
+		<property name="partitionCount">4</property>
+		<property name="partitionLength">256</property>
 	</function>
 	<function name="latestMonth"
 		class="io.mycat.route.function.LatestMonthPartion">
@@ -128,4 +141,14 @@
 	<function name="jump-consistent-hash" class="io.mycat.route.function.PartitionByJumpConsistentHash">
 		<property name="totalBuckets">3</property>
 	</function>
+
+	<function name="sharding-by-substring" class="io.mycat.route.function.PartitionByString">
+		<property name="partitionLength">64</property>
+		<property name="partitionCount">16</property>
+		<!-- 
+		0 means str.length(), -1 means str.length()-1
+		-->
+		<property name="hashSlice">0</property>
+	</function>
+	
 </mycat:rule>
